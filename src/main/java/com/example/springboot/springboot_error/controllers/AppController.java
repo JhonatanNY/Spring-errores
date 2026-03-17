@@ -16,7 +16,7 @@ public class AppController {
     @Autowired
     private UserService service;
 
-    @GetMapping("/app")
+    @GetMapping
     public String index(){
 
         //int value = 100/0;
@@ -27,8 +27,9 @@ public class AppController {
 
     @GetMapping("/show/{id}")
     public User show(@PathVariable Long id){
-
-       return service.findById(id);
+        User user = service.findById(id);
+        System.out.println(user.getLastname());
+       return user;
     }
 
 }
